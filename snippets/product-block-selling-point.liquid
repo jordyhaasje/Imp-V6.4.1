@@ -1,0 +1,74 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRODUCT BADGES COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+* product: the product to render the badges
+* variant: the specific variant to show the badge from
+* types: the types of badge to output. Can be "custom", "sold_out" or "discount" (or a combination separated by comma). If nothing is set, all badges are outputted.
+* context: can be "product" or "card"
+* class: an extra class added on the container
+{%- endcomment -%}
+
+<div class="product-icons {{ class }}">
+  {% if product.metafields.custom.feature_icons %}
+    <div class="product-icons__wrapper">
+      {% for icon in product.metafields.custom.feature_icons.value %}
+        <div class="product-icon">
+          <div class="icon-wrapper">
+            {% if icon.icon_svg != blank %}
+              <span class="icon-svg">{{ icon.icon_svg | raw }}</span>
+            {% else %}
+              <span class="icon-img">
+                {% assign image = icon.icon %}
+                {{- image | image_url: width: '96' | image_tag: loading: 'lazy', sizes: '48px', widths: '48,48', class: 'object-contain' -}}
+              </span>
+            {% endif %}
+          </div>
+          <div class="icon-desc">
+            <div class="icon-name tw-text-xs tw-font-normal tw-uppercase tw-text-gray-900">
+              {{ icon.name }}
+            </div>
+            <div class="icon-text tw-text-base tw-font-semibold tw-text-gray-900">
+              {{ icon.text | metafield_tag }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- trust differentiator -->
+  {% if product.metafields.custom.trust_differentiator_icons %}
+    <div class="trustDifferentiatorContainer">
+      <div class="trustDifferentiator__inner">
+        {% for icon in product.metafields.custom.trust_differentiator_icons.value %}
+          {%- if icon.link != blank -%}
+            <a aria-expanded="false" class="trustDifferentiator__item" data-tooltip="{{ icon.description | metafield_text }}" href="{{ icon.link }}" target="_blank">
+          {%- else -%}
+            <div class="trustDifferentiator__item">
+          {%- endif -%}
+            <div class="icon-wrapper">
+              {% if icon.icon_svg != blank %}
+                <span class="icon-svg">{{ icon.icon_svg | raw }}</span>
+              {% else %}
+                <span class="icon-img">
+                {% assign image = icon.icon %}
+                  {{- image | image_url: width: '108' | image_tag: loading: 'lazy', sizes: '60px', widths: '54,40', class: 'object-contain' -}}
+                </span>
+              {% endif %}
+            </div>
+            <div class="icon-desc">
+              <h2 class="tw-font-poppins tw-text-sm tw-font-semibold">
+                {{ icon.name }}
+              </h2>
+              <p class="tw-font-sans tw-text-xs tw-font-medium">
+                {{ icon.text | metafield_tag }}
+              </p>
+            </div>
+          {%- if icon.link != blank -%}</a>{%- else -%}</div>{%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
