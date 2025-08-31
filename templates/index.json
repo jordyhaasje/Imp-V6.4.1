@@ -11,17 +11,44 @@
   "sections": {
     "slideshow": {
       "type": "slideshow",
+      "blocks": {
+        "image_8grVaU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_2ac66695-7643-4689-9d32-e5b693f8cc8e.png",
+            "mobile_image": "shopify://shop_images/5-modelinfo-olivia-us2_a6e3425c-396f-45e8-a961-3679b28af290.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Tell your story",
+            "title": "Slide title",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_8grVaU"
+      ],
       "settings": {
         "full_width": false,
         "allow_transparent_header": true,
         "show_initial_transition": true,
-        "image_size": "auto",
+        "image_size": "sm",
         "controls_type": "numbers",
         "transition_type": "fade_with_text",
         "autoplay": true,
         "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": "linear-gradient(60deg, rgba(32, 32, 32, 1), rgba(0, 0, 0, 1) 97%)"
+        "background": "#ffffff",
+        "background_gradient": ""
       }
     },
     "image-link-blocks": {
