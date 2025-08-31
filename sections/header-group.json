@@ -58,7 +58,7 @@
         "show_country_name": true,
         "transparent_header_text_color": "#ffffff",
         "transparent_logo": "shopify://shop_images/Black_and_Grey_Simple_Minimalist_Aesthetic_Studio_Font_Logo_200_x_80_px_kopie_c6c1329b-de43-4ad8-a4aa-c9a442ad7189.png",
-        "reduce_padding": false,
+        "reduce_padding": true,
         "background_opacity": 100,
         "background_blur_radius": 0
       }
